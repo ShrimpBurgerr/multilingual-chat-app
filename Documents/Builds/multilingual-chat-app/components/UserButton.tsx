@@ -20,10 +20,11 @@ import { signIn } from "next-auth/react";
     </Button>
   )
 
-  return (
+  return session && (
   <DropdownMenu>
   <DropdownMenuTrigger>
-    <UserAvatar name="Yusuf Ahmed" image="https://github.com/shadcn.png" />
+    <UserAvatar name={session.user?.name} 
+    image="https://github.com/shadcn.png" />
   </DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>My Account</DropdownMenuLabel>
