@@ -1,4 +1,4 @@
-import LogoImage from "@logos/Chat With Anyone.png";
+import LogoImage from "@logos/black.svg";
 import Link from "next/link";
 import { AspectRatio } from "./ui/aspect-ratio";
 import Image from "next/image";
