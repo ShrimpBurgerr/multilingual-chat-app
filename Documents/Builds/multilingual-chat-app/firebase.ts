@@ -19,4 +19,3 @@ const firebaseConfig = {
   const functions = getFunctions(app);
 
   export {db, auth, functions };
-  
