@@ -9,7 +9,7 @@ const subscribtion = useSubscriptionStore((state) => state.subscription);
 const isPro = subscribtion?.role === "pro";
 const router = useRouter();
 
-if (subscribtion === undefined || isPro) return null;
+if (subscribtion === null || isPro) return null;
 
   return (
     <Button
@@ -19,7 +19,7 @@ if (subscribtion === undefined || isPro) return null;
     >
         Upgrade to Pro to unlock all features!
     </Button>
-  )
+  );
 }
 
-export default UpgradeBanner
+export default UpgradeBanner;
