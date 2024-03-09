@@ -11,8 +11,6 @@ import UpgradeBanner from "./UpgradeBanner";
 async function Header() {
     const session = await getServerSession(authOptions);
 
-
-
     return (
         <header className="sticky top-0 z-50 bg-white dark:bg-gray-900">
             <nav className="flex flex-col sm:flex-row items-center p-5 pl-2 bg-whitw dark:bg-gray-900 max-w-7xl mx-auto">
@@ -37,7 +35,6 @@ async function Header() {
                 </div>
             </nav>
 
-            {/* Upgrade Banner */}
             <UpgradeBanner />
         </header>
     );

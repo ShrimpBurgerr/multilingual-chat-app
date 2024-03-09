@@ -1,10 +1,9 @@
 'use client';
 import { subscriptionRef } from "@/lib/converters/Subscription";
 import { useSubscriptionStore } from "@/store/store";
-import { error } from "console";
 import { onSnapshot } from "firebase/firestore";
 import { useSession } from "next-auth/react";
-import React, { Children, useEffect } from "react";
+import { useEffect } from "react";
 function SubscribtionProvider({
     children,
 } : {
@@ -32,7 +31,7 @@ function SubscribtionProvider({
         });
     }, [session, setSubscription]);
 
-  return <>{Children}</>;
+  return <>{children}</>;
   }
 
 export default SubscribtionProvider
