@@ -8,6 +8,13 @@ import {
     collection,
 } from "firebase/firestore";
 
+export interface ChatMembers {
+    userId: string;
+    name: string;
+    email: string;
+    photoURL: string;
+    role: string;
+}
 const subscriptionConverter: FirestoreDataConverter<Subscription> = {
     toFirestore: function (Subscription: Subscription): DocumentData {
         return {
