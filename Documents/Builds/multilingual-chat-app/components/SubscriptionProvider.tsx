@@ -4,11 +4,8 @@ import { useSubscriptionStore } from "@/store/store";
 import { onSnapshot } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
-function SubscribtionProvider({
-    children,
-} : {
-    children: React.ReactNode;
-}) { 
+
+function SubscriptionProvider({ children } : { children: React.ReactNode }) { 
     const { data: session } = useSession();
     const setSubscription = useSubscriptionStore(
         (state) => state.setSubscription
@@ -17,22 +14,24 @@ function SubscribtionProvider({
     useEffect(() => {
         if (!session) return;
 
-        return onSnapshot(subscriptionRef(session?.user.id), (snapshot) => {
+        return onSnapshot(
+            subscriptionRef(session?.user.id),
+            (snapshot) => {
             if (snapshot.empty) {
                 console.log("User has NO subscription");
                 setSubscription(null);
             } else {
-                console.log("User has subscribtion");
+                console.log("User has subscription");
                 setSubscription(snapshot.docs[0].data());
             }
-        }, (error) => {
+        },
+        (error) => {
             console.log("Error getting documents:", error);
-
-        });
+        }
+    );
     }, [session, setSubscription]);
 
   return <>{children}</>;
   }
 
-export default SubscribtionProvider
-
+export default SubscriptionProvider;

@@ -4,9 +4,8 @@ import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ClientProviders from "@/components/ClientProviders";
 import FirebaseAuthProvider from "@/components/FirebaseAuthProvider";
-import SubscribtionProvider from "@/components/SubscribtionProvider";
-
-
+import SubscriptionProvider from "@/components/SubscriptionProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,24 +19,26 @@ export default function RootLayout({
 }) {
   return (
     <ClientProviders>
-    <html lang="en">
-      <body className="flex flex-col min-h-screen">
-        <FirebaseAuthProvider>
-          <SubscribtionProvider>
-        <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-        >
-        <Header />
-        
-        {children}
-        </ThemeProvider>
-        </SubscribtionProvider>
-        </FirebaseAuthProvider>
+      <html lang="en">
+        <body className="flex flex-col min-h-screen">
+          <FirebaseAuthProvider>
+            <SubscriptionProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <Header />
+
+                {children}
+
+                <Toaster />
+              </ThemeProvider>
+            </SubscriptionProvider>
+          </FirebaseAuthProvider>
         </body>
-    </html>
+      </html>
     </ClientProviders>
   );
 }

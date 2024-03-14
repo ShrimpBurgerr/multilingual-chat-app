@@ -29,16 +29,17 @@ async function Register() {
                         />
                         <defs>
                             <radialGradient id="radial-gradient">
-                                <stop stopColor="#7775d6" />
-                                <stop offset={1} stopColor="#E935C1" />
+                                <stop stopColor="#00c9a7" />
+                                <stop offset={1} stopColor="#8e2de2" />
                             </radialGradient>
                         </defs>
                     </svg>
                 </div>
             </div>
+            
             <PricingCards redirect={false} />
         </div>
-        )
+    );
 }
 
 export default Register;

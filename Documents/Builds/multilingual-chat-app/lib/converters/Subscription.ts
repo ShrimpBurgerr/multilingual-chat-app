@@ -12,7 +12,7 @@ const subscriptionConverter: FirestoreDataConverter<Subscription> = {
     toFirestore: function (Subscription: Subscription): DocumentData {
         return {
             ...Subscription
-        }
+        };
     },
     fromFirestore: function (
         snapshot: QueryDocumentSnapshot,

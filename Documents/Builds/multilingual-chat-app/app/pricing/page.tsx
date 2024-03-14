@@ -1,6 +1,5 @@
 import PricingCards from "@/components/PricingCards";
 
-
 function PricingPage() {
     return (
         <div className="isolate overflow-hidden bg-gray-900">
@@ -33,8 +32,8 @@ function PricingPage() {
                         />
                         <defs>
                             <radialGradient id="radial-gradient-pricing">
-                                <stop stopColor="#777506" />
-                                <stop offset={1} stopColor="#E935C1" />
+                                <stop stopColor="#00c9a7" />
+                                <stop offset={1} stopColor="#8e2de2" /> 
                             </radialGradient>
                         </defs>
                     </svg>
