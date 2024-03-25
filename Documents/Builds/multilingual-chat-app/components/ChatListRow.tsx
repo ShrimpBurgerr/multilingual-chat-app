@@ -2,15 +2,16 @@
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Skeleton } from "./ui/skeleton";
 import { Message, limitedSortedMessagesRef } from "@/lib/converters/Message";
-import { Languages, Router } from "lucide-react";
 import UserAvatar from "./UserAvatar";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useLanguageStore } from "@/store/store";
 
 function ChatListRow({ chatId }: { chatId: string }) {
   const [messages, loading, error] = useCollectionData<Message>(
     limitedSortedMessagesRef(chatId)
   );
+  const language = useLanguageStore((state) => state.language);
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -28,16 +29,19 @@ function ChatListRow({ chatId }: { chatId: string }) {
         name={message?.user.name || session?.user.name}
         image={message?.user.image || session?.user.image}
         />
+
         <div className="flex-1">
             <p className="font-bold">
                 {!message && "New Chat"}
                 {message &&
                 [message?.user.name || session?.user.name].toString().split(" ")[0]}
             </p>
+
             <p className="text-gray-400 line-clamp-1">
-                "Get the conversation started..."
+                {message?.translated?.[language] || "Get the conversation started..."}
             </p>
         </div>
+
         <div className="text-xs text-gray-400 text-right">
             <p className="mb-auto">
                 {message
